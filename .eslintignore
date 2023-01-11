@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.prettierrc
+.eslintrc.json
+env.d.ts
+package.json
+tsconfig.json
