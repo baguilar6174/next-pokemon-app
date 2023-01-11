@@ -1,8 +1,10 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import { CssBaseline } from '@nextui-org/react';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import React from 'react';
 
-export default function Document() {
+const MyDocument = () => {
 	return (
-		<Html lang="en">
+		<Html>
 			<Head />
 			<body>
 				<Main />
@@ -10,4 +12,15 @@ export default function Document() {
 			</body>
 		</Html>
 	);
-}
+};
+
+MyDocument.getInitialProps = async (context: DocumentContext) => {
+	const initialProps = await Document.getInitialProps(context);
+
+	return {
+		...initialProps,
+		styles: React.Children.toArray([initialProps.styles, CssBaseline.flush()])
+	};
+};
+
+export default MyDocument;
