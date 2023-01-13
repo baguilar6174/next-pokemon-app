@@ -1,1 +1,2 @@
-export * from './response.interface';
+export * from './pokemon.interface';
+export * from './pokemons.interface';

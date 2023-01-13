@@ -18,6 +18,7 @@ export const Layout: React.FC<PropLayout> = ({ children, headTitle }: PropLayout
 				<meta name="author" content="Bryan Aguilar" />
 				<meta name="description" content="Information about XXX" />
 				<meta name="keywords" content="XXX, pokemon" />
+				<link rel="shortcut icon" href="/favicon.svg" />
 			</Head>
 			<Header />
 			<main>{children}</main>

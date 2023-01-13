@@ -1,11 +1,15 @@
-import { Avatar, Button, Link, Navbar } from '@nextui-org/react';
+import { Avatar, Button, Navbar } from '@nextui-org/react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
-export const Header = (): React.ReactElement => {
+export const Header: React.FC = (): React.ReactElement => {
+	const router = useRouter();
+
 	return (
 		<Navbar isCompact isBordered variant="sticky">
 			<Navbar.Toggle showIn="xs" />
 			<Navbar.Brand
+				onClick={goToHome}
 				css={{
 					'@xs': {
 						w: '12%'
@@ -16,7 +20,7 @@ export const Header = (): React.ReactElement => {
 			</Navbar.Brand>
 			<Navbar.Content activeColor="warning" hideIn="xs" variant="highlight">
 				<Navbar.Item>
-					<Button auto as={Link} bordered color="warning">
+					<Button auto onClick={goToFavorites} bordered color="warning">
 						Favorites
 					</Button>
 				</Navbar.Item>
@@ -41,4 +45,12 @@ export const Header = (): React.ReactElement => {
 			</Navbar.Content>
 		</Navbar>
 	);
+
+	function goToHome(): void {
+		router.push(`/`);
+	}
+
+	function goToFavorites(): void {
+		router.push(`/favorites`);
+	}
 };
