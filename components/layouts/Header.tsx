@@ -1,23 +1,9 @@
 import { Avatar, Button, Link, Navbar } from '@nextui-org/react';
 import Image from 'next/image';
-/* import { Layout } from "./Layout.js";*/
-
-const collapseItems = [
-	'Profile',
-	'Dashboard',
-	'Activity',
-	'Analytics',
-	'System',
-	'Deployments',
-	'My Settings',
-	'Team Settings',
-	'Help & Feedback',
-	'Log Out'
-];
 
 export const Header = (): React.ReactElement => {
 	return (
-		<Navbar isBordered variant="sticky">
+		<Navbar isCompact isBordered variant="sticky">
 			<Navbar.Toggle showIn="xs" />
 			<Navbar.Brand
 				css={{
@@ -30,7 +16,7 @@ export const Header = (): React.ReactElement => {
 			</Navbar.Brand>
 			<Navbar.Content activeColor="warning" hideIn="xs" variant="highlight">
 				<Navbar.Item>
-					<Button auto flat as={Link}>
+					<Button auto as={Link} bordered color="warning">
 						Favorites
 					</Button>
 				</Navbar.Item>
@@ -53,28 +39,6 @@ export const Header = (): React.ReactElement => {
 					/>
 				</Navbar.Item>
 			</Navbar.Content>
-			<Navbar.Collapse disableAnimation>
-				{collapseItems.map((item, index) => (
-					<Navbar.CollapseItem
-						key={item}
-						activeColor="warning"
-						css={{
-							color: index === collapseItems.length - 1 ? '$error' : ''
-						}}
-						isActive={index === 2}
-					>
-						<Link
-							color="inherit"
-							css={{
-								minWidth: '100%'
-							}}
-							href="#"
-						>
-							{item}
-						</Link>
-					</Navbar.CollapseItem>
-				))}
-			</Navbar.Collapse>
 		</Navbar>
 	);
 };

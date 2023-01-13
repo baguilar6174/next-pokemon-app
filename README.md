@@ -1,23 +1,62 @@
 # Next Pokemon App
 
-```bash
-yarn
+This repository contains an application created in Next using next and the Pokemon API.
 
+## Installation
+
+Get code using
+
+```
+git clone https://github.com/baguilar6174/next-pokemon-app.git
+```
+
+Step 2:
+
+Install the necessary libraries (make sure you have node >= 16 and yarn)
+
+```
+yarn
+```
+
+Step 3:
+
+Runs the app in the development mode
+
+```
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Build with
+## My process
+
+### Build with
 
 - Next JS
+- React JS
 - Typescript
 - Poke API
 - Next UI
 
-TODO:
+### What I learned
 
-- update readme
+- Using Layouts
+- Using Next UI components
+- Flex Layout
+- Next UI themes
+- Navigation
+- URL Params
+- Next GetStaticProps & GetStaticPaths
+- Generate pages in build time
+
+## Next Pokemon App
+
+<table>
+  <tr>
+    <td align="center" valign="center"><img src="./media/1.png" width="100%"></td>
+    <td align="center" valign="center"><img src="./media/2.png" width="100%"></td>
+  </tr>
+ </table>
 
 ## Stay in touch
 

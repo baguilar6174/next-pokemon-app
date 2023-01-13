@@ -14,7 +14,7 @@ export default function Home(props: PropHome): React.ReactNode {
 		<Layout headTitle="Pokemons List">
 			<Grid.Container gap={4} justify="flex-start">
 				{pokemons.map((pokemon) => (
-					<Grid xs={6} sm={3} key={pokemon.id}>
+					<Grid xs={12} sm={6} md={4} key={pokemon.id}>
 						<Card css={{ w: '100%', h: '300px' }}>
 							<Card.Body css={{ p: 0 }}>
 								<Card.Image src={pokemon.img} objectFit="cover" width="100%" height="100%" alt={pokemon.name} />
