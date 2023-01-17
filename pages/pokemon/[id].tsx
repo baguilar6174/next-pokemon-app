@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { Layout } from '../../components';
 import { PokemonResponse } from '../../interfaces';
 import { pokeApi } from '../../services';
+import { persistFavorites } from '../../utils';
 
 export type PropDetailPage = {
 	pokemon: PokemonResponse;
@@ -31,7 +32,7 @@ const DetailPage: React.FC<PropDetailPage> = (props: PropDetailPage): React.Reac
 							<Text h1 transform="capitalize">
 								{pokemon.name}
 							</Text>
-							<Button color="gradient" ghost>
+							<Button color="gradient" ghost onPress={onToggleFavorite}>
 								Save on favorites
 							</Button>
 						</Card.Header>
@@ -65,6 +66,10 @@ const DetailPage: React.FC<PropDetailPage> = (props: PropDetailPage): React.Reac
 			</Grid.Container>
 		</Layout>
 	);
+
+	function onToggleFavorite(): void {
+		persistFavorites.toggleFavorite(pokemon.id);
+	}
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
