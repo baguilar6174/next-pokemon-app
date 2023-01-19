@@ -1,5 +1,6 @@
 import { Button, Card, Container, Grid, Image, Table, Text } from '@nextui-org/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useState } from 'react';
 import { Layout } from '../../components';
 import { PokemonResponse } from '../../interfaces';
 import { pokeApi } from '../../services';
@@ -11,6 +12,9 @@ export type PropDetailPage = {
 
 const DetailPage: React.FC<PropDetailPage> = (props: PropDetailPage): React.ReactElement => {
 	const { pokemon } = props;
+
+	const [isInFavorites, setIsInFavorites] = useState<boolean>(persistFavorites.existInFavorites(pokemon.id));
+
 	return (
 		<Layout headTitle={pokemon.name}>
 			<Grid.Container css={{ marginTop: '5px' }} gap={2}>
@@ -32,8 +36,8 @@ const DetailPage: React.FC<PropDetailPage> = (props: PropDetailPage): React.Reac
 							<Text h1 transform="capitalize">
 								{pokemon.name}
 							</Text>
-							<Button color="gradient" ghost onPress={onToggleFavorite}>
-								Save on favorites
+							<Button color="gradient" ghost={!isInFavorites} onPress={onToggleFavorite}>
+								{isInFavorites ? 'Remove from favorites' : 'Save on favorites'}
 							</Button>
 						</Card.Header>
 						<Card.Body>
@@ -69,6 +73,7 @@ const DetailPage: React.FC<PropDetailPage> = (props: PropDetailPage): React.Reac
 
 	function onToggleFavorite(): void {
 		persistFavorites.toggleFavorite(pokemon.id);
+		setIsInFavorites(!isInFavorites);
 	}
 };
 
