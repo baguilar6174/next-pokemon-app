@@ -15,7 +15,7 @@ export const PokemonCard: React.FC<PropPokemonCard> = (props: PropPokemonCard): 
 
 	return (
 		<Grid xs={12} sm={6} md={4} lg={3} onClick={onNavigate}>
-			<Card css={{ w: '100%', h: '300px' }}>
+			<Card isHoverable isPressable css={{ w: '100%', h: '300px' }}>
 				<Card.Body css={{ p: 0 }}>
 					<Card.Image src={img} objectFit="cover" width="100%" height="100%" alt={name} />
 				</Card.Body>
