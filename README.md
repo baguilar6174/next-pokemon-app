@@ -48,6 +48,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - URL Params
 - Next GetStaticProps & GetStaticPaths
 - Generate pages in build time
+- Incremental static regeneration
 
 ## Next Pokemon App
 
@@ -58,6 +59,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   </tr>
   <tr>
     <td colspan="2" align="center" valign="center"><img src="./media/3.png" width="100%"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" valign="center"><img src="./media/4.png" width="100%"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" valign="center"><img src="./media/5.png" width="100%"></td>
   </tr>
  </table>
 
