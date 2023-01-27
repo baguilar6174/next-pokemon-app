@@ -86,18 +86,39 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 	return {
 		paths,
-		fallback: false
+		fallback: 'blocking'
 	};
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { id } = params as { id: string };
-	const { data } = await pokeApi.get<PokemonResponse>(`/pokemon/${id}`);
+	const pokemon = await getPokemon(id);
+
+	if (!pokemon) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false
+			}
+		};
+	}
+
 	return {
 		props: {
-			pokemon: data
-		}
+			pokemon
+		},
+		revalidate: 86400
 	};
+	// revalidate: Allows to rebuild pages in 24h
+};
+
+const getPokemon = async (id: string) => {
+	try {
+		const { data } = await pokeApi.get<PokemonResponse>(`/pokemon/${id}`);
+		return data;
+	} catch (error) {
+		return null;
+	}
 };
 
 export default DetailPage;
